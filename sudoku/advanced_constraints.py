@@ -45,10 +45,6 @@ class MagicSquare(AdvancedConstraint):
             grid.grid[x] for x in self.positions
         ))
 
-        # skip checks if cells are not filled yet
-        if set(square) == {None}:
-            return True
-
         # check uniqueness
         if self.check_uniqueness:
             if not _unique_list(square):
@@ -73,22 +69,17 @@ class MagicSquare(AdvancedConstraint):
         if not odd_check(square[7]): return False
 
         # check row sums
-        if not self._check_sum(square[0:3]): return False
-        if not self._check_sum(square[3:6]): return False
-        if not self._check_sum(square[6:9]): return False
+        sum_check = lambda x, y, z: x is None or y is None or z is None or x+y+z == 15
+        if not sum_check(square[0], square[1], square[2]): return False
+        if not sum_check(square[3], square[4], square[5]): return False
+        if not sum_check(square[6], square[7], square[8]): return False
 
         # check column sum
-        if not self._check_sum((square[0], square[3], square[6])): return False
-        if not self._check_sum((square[1], square[4], square[7])): return False
-        if not self._check_sum((square[2], square[5], square[8])): return False
+        if not sum_check(square[0], square[3], square[6]): return False
+        if not sum_check(square[1], square[4], square[7]): return False
+        if not sum_check(square[2], square[5], square[8]): return False
 
         return True
-
-    @staticmethod
-    def _check_sum(v):
-        if v[0] is None or v[1] is None or v[2] is None:
-            return True
-        return v[0] + v[1] + v[2] == 15
 
     def __str__(self):
         return 'Magic square'  # TODO: add positions
