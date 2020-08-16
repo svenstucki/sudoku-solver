@@ -91,7 +91,7 @@ class MagicSquare(AdvancedConstraint):
         return v[0] + v[1] + v[2] == 15
 
     def __str__(self):
-        return 'magic square'  # TODO: add positions
+        return 'Magic square'  # TODO: add positions
 
 
 class UniqueDiagonal(AdvancedConstraint):

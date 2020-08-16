@@ -1,4 +1,4 @@
-from puzzles.classic1 import puzzle
+from puzzles.advanced1 import puzzle
 
 from sudoku.solver import BacktrackingSolver
 
