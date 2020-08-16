@@ -17,7 +17,7 @@ class BacktrackingSolver:
 
     def backtrack_position(self, base_grid, from_idx, level):
         for i in range(9):
-            if level < 3:
+            if level < 20:
                 print(f'trying digit {"_"*level}{i+1}')
 
             # insert digit and check resulting grid

@@ -68,7 +68,7 @@ class Grid:
         constraints = ''
         if len(self.additional_constraints) > 0:
             constraints = '\nAdditional constraints:\n' + '\n'.join([
-                '- ' + constraint for constraint in self.additional_constraints
+                '- ' + str(constraint) for constraint in self.additional_constraints
             ])
 
         return '\n'.join([
