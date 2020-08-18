@@ -5,7 +5,7 @@ from sudoku.solver import BacktrackingSolver
 
 
 def test_solves_classic1():
-    solver = BacktrackingSolver(classic1)
+    solver = BacktrackingSolver(classic1, BacktrackingSolver.LINEAR_PATH)
     result = solver.solve()
 
     assert result.grid == [
@@ -24,7 +24,7 @@ def test_solves_classic1():
 
 
 def test_solves_classic2():
-    solver = BacktrackingSolver(classic2)
+    solver = BacktrackingSolver(classic2, BacktrackingSolver.LINEAR_PATH)
     result = solver.solve()
 
     assert result.grid == [
